@@ -1,0 +1,1 @@
+npx vite preview --open
