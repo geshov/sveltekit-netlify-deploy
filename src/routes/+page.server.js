@@ -1,7 +1,13 @@
 import { supabase } from "$lib/supabaseClient";
+import { USER_EMAIL, USER_PASSWORD } from "$env/static/private";
+
+await supabase.auth.signInWithPassword({
+  email: USER_EMAIL,
+  password: USER_PASSWORD
+});
 
 export async function load() {
-  const { data, error } = await supabase.from("countries").select();
+  const { data } = await supabase.from("countries").select();
   return {
     countries: data ?? []
   };
@@ -10,6 +16,6 @@ export async function load() {
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
-    const { error } = await supabase.from("countries").insert({ name: data.get("country") });
+    await supabase.from("countries").insert({ name: data.get("country") });
   }
 };
