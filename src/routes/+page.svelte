@@ -11,6 +11,6 @@
 </ul>
 
 <form method="post">
-  <input type="text" name="country" class="input input-primary" />
+  <input type="text" name="country" class="input input-primary" required />
   <button type="submit" class="btn btn-primary">Добавить</button>
 </form>
