@@ -1,4 +1,5 @@
 <script>
+  import { enhance } from "$app/forms";
   let { data } = $props();
 </script>
 
@@ -10,7 +11,7 @@
   {/each}
 </ul>
 
-<form method="post">
+<form method="post" use:enhance>
   <input type="text" name="country" class="input input-primary" required />
   <button type="submit" class="btn btn-primary">Добавить</button>
 </form>
